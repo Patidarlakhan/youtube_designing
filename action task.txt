@@ -1,16 +1,16 @@
 Youtube Like System Design
 
 ✅ 1. Define Data Models (Entities)
-User (id, name, email, password, etc.)
+a. User (id, name, email, password, etc.)
 
 
-Video (id, user_id, title, description, file_path, upload_date, etc.)
+b. Video (id, user_id, title, description, file_path, upload_date, etc.)
 
 
-Comment (id, user_id, video_id, text, timestamp)
+c. Comment (id, user_id, video_id, text, timestamp)
 
 
-Reaction (id, user_id, video_id, type → like or dislike)
+d. Reaction (id, user_id, video_id, type → like or dislike)
 
 
 
@@ -50,46 +50,44 @@ CREATE TABLE reactions (
 
 ✅ 3. Design API Endpoints
 For each functionality:
-Upload Video → POST /videos/upload
+a. Upload Video → POST /videos/upload
 
 
-Get Video → GET /videos/{id}
+b. Get Video → GET /videos/{id}
 
 
-Like/Dislike Video → POST /videos/{id}/reaction
+c. Like/Dislike Video → POST /videos/{id}/reaction
 
 
-Add Comment → POST /videos/{id}/comment
+d. Add Comment → POST /videos/{id}/comment
 
 
-Search Videos → GET /videos/search?q=keyword
+e. Search Videos → GET /videos/search?q=keyword
 
 
 
 ✅ 4. Build Basic Frontend Pages
-Video Upload Page
+a. Video Upload Page
 
 
-Video Watch Page (with Like/Dislike buttons, Comments section)
+b. Video Watch Page (with Like/Dislike buttons, Comments section)
 
 
-Search Page
+c. Search Page
 
 
 
 ✅ 5. Implement Backend Logic
-Handle file upload (store video files locally)
+a. Handle file upload (store video files locally)
 
 
-Store metadata in DB
+b. Store metadata in DB
 
 
-Handle reactions and comments
+c. Handle reactions and comments
 
 
-Implement search logic (simple title or description search)
+d. Implement search logic (simple title or description search)
 
 
-
-Would you like me to help you start designing the database schema or API endpoints next?
 
