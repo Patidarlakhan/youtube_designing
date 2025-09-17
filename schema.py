@@ -15,3 +15,36 @@ class CommentResponse(BaseModel):
 
     class Config:
         orm_mode = True
+<<<<<<< HEAD
+=======
+
+class ReactionCreate(BaseModel):
+    video_id: int
+    user_id: int
+    type: str  # 'like' or 'dislike'
+
+class ReactionResponse(BaseModel):
+    id: int
+    video_id: int
+    user_id: int
+    type: str
+    timestamp: datetime
+
+    class Config:
+        orm_mode = True
+
+class ReactionCountResponse(BaseModel):
+    likes: int
+    dislikes: int
+
+class VideoResponse(BaseModel):
+    id: int
+    title: str
+    description: str
+    file_path: str
+    uploaded_by: int
+    upload_date: datetime
+
+    class Config:
+        orm_mode = True
+>>>>>>> c3db268 (Your commit message)

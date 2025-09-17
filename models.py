@@ -30,7 +30,7 @@ class Video(Base):
     reactions = relationship("Reaction", back_populates="video")
 
 class Comment(Base):
-    __tablename__ = "Comment"
+    __tablename__ = "comment"
 
     id = Column(Integer, primary_key=True, index=True)
     video_id = Column(Integer, ForeignKey("video.id"), nullable=False)
@@ -42,7 +42,7 @@ class Comment(Base):
     user = relationship("User", back_populates="comments")
 
 class Reaction(Base):
-    __tablename__ = "Reaction"
+    __tablename__ = "reaction"
 
     id = Column(Integer, primary_key=True, index=True)
     video_id = Column(Integer, ForeignKey("video.id"), nullable=False)
