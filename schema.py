@@ -15,8 +15,7 @@ class CommentResponse(BaseModel):
 
     class Config:
         orm_mode = True
-<<<<<<< HEAD
-=======
+
 
 class ReactionCreate(BaseModel):
     video_id: int
@@ -47,4 +46,4 @@ class VideoResponse(BaseModel):
 
     class Config:
         orm_mode = True
->>>>>>> c3db268 (Your commit message)
+
