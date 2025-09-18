@@ -1,9 +1,7 @@
 from sqlalchemy.orm import Session
 import models, schema
-<<<<<<< HEAD
-=======
 from sqlalchemy import or_
->>>>>>> c3db268 (Your commit message)
+
 
 def create_comment(db: Session, comment: schema.CommentCreate):
     db_comment = models.Comment(
@@ -19,8 +17,6 @@ def create_comment(db: Session, comment: schema.CommentCreate):
 
 def get_comments_by_video(db: Session, video_id: int):
     return db.query(models.Comment).filter(models.Comment.video_id == video_id).all()
-<<<<<<< HEAD
-=======
 
 def add_or_update_reaction(db: Session, reaction: schema.ReactionCreate):
     existing = db.query(models.Reaction).filter(
@@ -65,4 +61,3 @@ def search_videos(db: Session, query: str):
             models.Video.description.ilike(f"%{query}%")
         )
     ).all()
->>>>>>> c3db268 (Your commit message)
