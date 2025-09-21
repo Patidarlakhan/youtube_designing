@@ -1,0 +1,92 @@
+Youtube Like System Design
+
+✅ 1. Define Data Models (Entities)
+a. User (id, name, email, password, etc.)
+
+
+b. Video (id, user_id, title, description, file_path, upload_date, etc.)
+
+
+c. Comment (id, user_id, video_id, text, timestamp)
+
+
+d. Reaction (id, user_id, video_id, type → like or dislike)
+
+
+
+✅ 2. Design Database Schema
+Write tables for each entity. Example (simplified):
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    password VARCHAR(255)
+);
+
+CREATE TABLE videos (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    title VARCHAR(255),
+    description TEXT,
+    file_path VARCHAR(255),
+    upload_date TIMESTAMP
+);
+
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    video_id INTEGER REFERENCES videos(id),
+    text TEXT,
+    timestamp TIMESTAMP
+);
+
+CREATE TABLE reactions (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    video_id INTEGER REFERENCES videos(id),
+    type VARCHAR(10)  -- 'like' or 'dislike'
+);
+
+
+✅ 3. Design API Endpoints
+For each functionality:
+a. Upload Video → POST /videos/upload
+
+
+b. Get Video → GET /videos/{id}
+
+
+c. Like/Dislike Video → POST /videos/{id}/reaction
+
+
+d. Add Comment → POST /videos/{id}/comment
+
+
+e. Search Videos → GET /videos/search?q=keyword
+
+
+
+✅ 4. Build Basic Frontend Pages
+a. Video Upload Page
+
+
+b. Video Watch Page (with Like/Dislike buttons, Comments section)
+
+
+c. Search Page
+
+
+
+✅ 5. Implement Backend Logic
+a. Handle file upload (store video files locally)
+
+
+b. Store metadata in DB
+
+
+c. Handle reactions and comments
+
+
+d. Implement search logic (simple title or description search)
+
+
